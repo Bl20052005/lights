@@ -1,10 +1,11 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import soundfile from "./E.mp3";
 function App() {
   var timeInterval;
-  //const [counter, setCounter] = useState(0);
+  var audioFile;
   var counter = 0;
-  const startLights = () =>{
+  const startLights = (e) =>{
     let reds = document.querySelectorAll(".redLight");
     let yellows = document.querySelectorAll(".yellowLight");
     let greens = document.querySelectorAll(".greenLight");
@@ -30,7 +31,25 @@ function App() {
       counter++;
       counter %= 3;
     }, 500);
+    audioFile = new Audio(soundfile);
+    audioFile.play();
+    e.stopPropagation();
   }
+
+  const restoreButton = (event) =>{
+    clearInterval(timeInterval);
+    let reds = document.querySelectorAll(".redLight");
+    let yellows = document.querySelectorAll(".yellowLight");
+    let greens = document.querySelectorAll(".greenLight");
+    for(let i = 0; i < reds.length; i++){
+      yellows[i].style.backgroundColor = "black";
+      greens[i].style.backgroundColor = "black";
+      reds[i].style.backgroundColor = "black";
+    }
+    document.getElementById("buttonId").hidden = false;
+    audioFile.pause();
+  }
+
   const repeat = [...Array(432)].map( (v) =>
         <div className="repeatFunction">
           <div className="redLight"></div>
@@ -40,7 +59,7 @@ function App() {
       );
   
   return (
-    <div className="App">
+    <div className="App" onClick={restoreButton}>
       <head>
         <meta name="description" content="traffic light stuff"/>
         <meta name="keywords" content="HTML,CSS,JavaScript"/>
