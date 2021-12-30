@@ -1,30 +1,52 @@
+html{
+  background-color: black;
+}
+
 .App {
   text-align: center;
+}
+
+#buttonId{
+  width: 75px;
+  height: 25px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
 }
 
 .redLight {
   border: 2px solid black;
   border-radius: 50%;
-  background-color: red;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+  background-color: black;
+  width: 25px;
+  height: 25px;
+  margin: 5px;
 }
 
 .yellowLight {
   border: 2px solid black;
   border-radius: 50%;
-  background-color: yellow;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+  background-color: black;
+  width: 25px;
+  height: 25px;
+  margin: 5px;
 }
 
 .greenLight {
   border: 2px solid black;
   border-radius: 50%;
-  background-color: green;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+  background-color: black;
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+}
+
+.repeatFunction{
+  display: flex;
+  flex-direction: column;
+}
+
+.rowFormation{
+  display: flex;
+  flex-wrap: wrap;
 }
